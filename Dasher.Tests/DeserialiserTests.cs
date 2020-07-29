@@ -22,11 +22,11 @@
 //
 #endregion
 
+using MsgPack;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using MsgPack;
 using Xunit;
 
 namespace Dasher.Tests
@@ -392,8 +392,7 @@ namespace Dasher.Tests
         {
             var bytes = PackBytes(packer => packer.PackMapHeader(1).Pack(nameof(ValueWrapper<Tuple<int, string, bool?>>.Value)).PackArrayHeader(2).Pack(1).Pack("Hello"));
 
-            var ex = Assert.Throws(
-                typeof(DeserialisationException),
+            var ex = Assert.Throws<DeserialisationException>(
                 () => new Deserialiser<ValueWrapper<Tuple<int, string, bool?>>>().Deserialise(bytes));
 
             Assert.Equal($"Received array must have length 3 for type {typeof(Tuple<int, string, bool?>).FullName}", ex.Message);
@@ -404,8 +403,7 @@ namespace Dasher.Tests
         {
             var bytes = PackBytes(packer => packer.PackMapHeader(1).Pack(nameof(ValueWrapper<Tuple<int, string>>.Value)).PackArrayHeader(3).Pack(1).Pack("Hello").Pack("Extra!!"));
 
-            var ex = Assert.Throws(
-                typeof(DeserialisationException),
+            var ex = Assert.Throws<DeserialisationException>(
                 () => new Deserialiser<ValueWrapper<Tuple<int, string>>>().Deserialise(bytes));
 
             Assert.Equal($"Received array must have length 2 for type {typeof(Tuple<int, string>).FullName}", ex.Message);
@@ -416,8 +414,7 @@ namespace Dasher.Tests
         {
             var bytes = PackBytes(packer => packer.PackMapHeader(1).Pack(nameof(ValueWrapper<Tuple<int, string>>.Value)).Pack("Not an array"));
 
-            var ex = Assert.Throws(
-                typeof(DeserialisationException),
+            var ex = Assert.Throws<DeserialisationException>(
                 () => new Deserialiser<ValueWrapper<Tuple<int, string>>>().Deserialise(bytes));
 
             Assert.Equal("Expecting tuple data to be encoded as array", ex.Message);
@@ -475,10 +472,10 @@ namespace Dasher.Tests
             var ex = Assert.Throws<ArgumentException>(
                 () => new Deserialiser<ValueWrapper<IReadOnlyDictionary<int, string>>>().Deserialise(bytes));
 
-#if NETCOREAPP1_0
+#if NETCOREAPP3_1
             Assert.Equal("An item with the same key has already been added. Key: 1", ex.Message);
 #else
-#if NET452
+#if NET472
             Assert.Equal("An item with the same key has already been added.", ex.Message);
 #else
             throw new Exception("Build configuration is not tested.");

@@ -758,26 +758,26 @@ namespace Dasher.Tests
             var s2 = (Contract)contractCollection.GetOrAddReadContract(typeof(Wrapper<Person>));
 
             Assert.Equal(4, contractCollection.Contracts.Count);
-            Assert.True(contractCollection.Contracts.Contains(s1));
-            Assert.True(contractCollection.Contracts.Contains(s2));
+            Assert.Contains(s1, contractCollection.Contracts);
+            Assert.Contains(s2, contractCollection.Contracts);
 
             contractCollection.GarbageCollect(new[] { s2 });
 
             Assert.Equal(4, contractCollection.Contracts.Count);
-            Assert.True(contractCollection.Contracts.Contains(s1));
-            Assert.True(contractCollection.Contracts.Contains(s2));
+            Assert.Contains(s1, contractCollection.Contracts);
+            Assert.Contains(s2, contractCollection.Contracts);
 
             contractCollection.GarbageCollect(new[] { s1 });
 
             Assert.Equal(3, contractCollection.Contracts.Count);
-            Assert.True(contractCollection.Contracts.Contains(s1));
-            Assert.False(contractCollection.Contracts.Contains(s2));
+            Assert.Contains(s1, contractCollection.Contracts);
+            Assert.DoesNotContain(s2, contractCollection.Contracts);
 
             contractCollection.GarbageCollect(new Contract[0]);
 
             Assert.Equal(0, contractCollection.Contracts.Count);
-            Assert.False(contractCollection.Contracts.Contains(s1));
-            Assert.False(contractCollection.Contracts.Contains(s2));
+            Assert.DoesNotContain(s1, contractCollection.Contracts);
+            Assert.DoesNotContain(s2, contractCollection.Contracts);
         }
 
         #endregion

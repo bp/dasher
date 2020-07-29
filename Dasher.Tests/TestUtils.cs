@@ -31,11 +31,7 @@ namespace Dasher.Tests
         public static void CleanUpForPerfTest()
         {
             GC.Collect(2, GCCollectionMode.Forced);
-
-#if !NETCOREAPP1_0
             GC.WaitForFullGCComplete(1000);
-#endif
-
             GC.WaitForPendingFinalizers();
         }
     }

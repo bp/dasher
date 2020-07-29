@@ -187,13 +187,15 @@ namespace Dasher.Tests
             Assert.Equal(1.23f, F);
             Assert.Equal(1.23, D);
             Assert.Equal(1.23M, Dc);
-            Assert.Equal(true, Bo);
+            Assert.True(Bo);
             Assert.Equal(TestEnum.Bar, E);
-            Assert.Equal(null, Complex);
-            Assert.Equal(null, ByteArray);
+            Assert.Null(Complex);
+            Assert.Null(ByteArray);
             Assert.Null(ByteArraySegment.Array);
             Assert.Equal(0, ByteArraySegment.Offset);
+#pragma warning disable xUnit2013
             Assert.Equal(0, ByteArraySegment.Count);
+#pragma warning restore xUnit2013
         }
     }
 
@@ -273,13 +275,15 @@ namespace Dasher.Tests
             Assert.Equal(1.23f, F);
             Assert.Equal(1.23, D);
             Assert.Equal(1.23M, Dc);
-            Assert.Equal(true, Bo);
+            Assert.True(Bo);
             Assert.Equal(TestEnum.Bar, E);
-            Assert.Equal(null, Complex);
-            Assert.Equal(null, ByteArray);
+            Assert.Null(Complex);
+            Assert.Null(ByteArray);
             Assert.Null(ByteArraySegment.Array);
             Assert.Equal(0, ByteArraySegment.Offset);
+#pragma warning disable xUnit2013
             Assert.Equal(0, ByteArraySegment.Count);
+#pragma warning restore xUnit2013
         }
     }
 

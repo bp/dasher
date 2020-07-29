@@ -28,9 +28,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-#if NETSTANDARD1_3
-using System.Runtime.CompilerServices;
-#endif
 
 namespace Dasher.TypeProviders
 {
