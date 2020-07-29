@@ -3,7 +3,7 @@
     <Description>A fast, lightweight, cross-platform serialisation tool with support for safe contract evolution.</Description>
     <Copyright>Copyright Drew Noakes 2015-2017</Copyright>
     <AssemblyTitle>Dasher</AssemblyTitle>
-    <VersionPrefix>0.9.0</VersionPrefix>
+    <VersionPrefix>0.9.1</VersionPrefix>
     <Authors>Drew Noakes</Authors>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <DefineConstants>$(DefineConstants);UNSAFE</DefineConstants>
