@@ -25,9 +25,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-#if NETSTANDARD1_3
-using System.Reflection;
-#endif
 
 namespace Dasher.Utils
 {
