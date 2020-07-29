@@ -43,11 +43,7 @@ namespace Dasher.Contracts.Types
         /// <summary>
         /// The set of member names present in this contract.
         /// </summary>
-#if NET472
-        public IEnumerable<string> MemberNames => _memberNames;
-#else
         public IReadOnlyCollection<string> MemberNames => _memberNames;
-#endif
 
         internal EnumContract(Type type)
         {
