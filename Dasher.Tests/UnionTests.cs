@@ -86,7 +86,7 @@ namespace Dasher.Tests
         }
 
         [Fact]
-        public void Equals()
+        public void Equal()
         {
             Assert.Equal(1, (Union<int, double>)1);
             Assert.Equal(1.0, (Union<int, double>)1.0);
@@ -123,8 +123,8 @@ namespace Dasher.Tests
             Assert.True(str.Equals(null));
             Assert.True(ver.Equals(null));
 
-            Assert.Equal(null, str.ToString());
-            Assert.Equal(null, ver.ToString());
+            Assert.Null(str.ToString());
+            Assert.Null(ver.ToString());
 
             Assert.Equal(0, str.GetHashCode());
             Assert.Equal(0, ver.GetHashCode());
