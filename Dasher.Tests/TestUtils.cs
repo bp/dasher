@@ -32,7 +32,7 @@ namespace Dasher.Tests
         {
             GC.Collect(2, GCCollectionMode.Forced);
 
-#if !NETCOREAPP1_0
+#if !NETCOREAPP3_1
             GC.WaitForFullGCComplete(1000);
 #endif
 

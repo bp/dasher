@@ -101,7 +101,7 @@ namespace Dasher
             var stream = new MemoryStream();
             using (var packer = new Packer(stream))
                 Serialise(packer, value);
-#if NET45
+#if NET472
             return new ArraySegment<byte>(stream.GetBuffer(), 0, checked((int)stream.Length));
 #else
             stream.TryGetBuffer(out var buffer);
@@ -184,7 +184,7 @@ namespace Dasher
             var stream = new MemoryStream();
             using (var packer = new Packer(stream))
                 Serialise(packer, value);
-#if NET45
+#if NET472
             return new ArraySegment<byte>(stream.GetBuffer(), 0, checked((int)stream.Length));
 #else
             stream.TryGetBuffer(out var buffer);

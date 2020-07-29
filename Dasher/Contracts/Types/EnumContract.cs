@@ -22,12 +22,12 @@
 //
 #endregion
 
+using Dasher.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
-using Dasher.Utils;
 
 namespace Dasher.Contracts.Types
 {
@@ -43,7 +43,7 @@ namespace Dasher.Contracts.Types
         /// <summary>
         /// The set of member names present in this contract.
         /// </summary>
-#if NET45
+#if NET472
         public IEnumerable<string> MemberNames => _memberNames;
 #else
         public IReadOnlyCollection<string> MemberNames => _memberNames;

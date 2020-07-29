@@ -475,10 +475,10 @@ namespace Dasher.Tests
             var ex = Assert.Throws<ArgumentException>(
                 () => new Deserialiser<ValueWrapper<IReadOnlyDictionary<int, string>>>().Deserialise(bytes));
 
-#if NETCOREAPP1_0
+#if NETCOREAPP3_1
             Assert.Equal("An item with the same key has already been added. Key: 1", ex.Message);
 #else
-#if NET452
+#if NET472
             Assert.Equal("An item with the same key has already been added.", ex.Message);
 #else
             throw new Exception("Build configuration is not tested.");
