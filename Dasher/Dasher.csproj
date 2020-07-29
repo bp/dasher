@@ -22,7 +22,7 @@
     <IncludeSource>true</IncludeSource>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="10.4.0">
+    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
   </ItemGroup>

@@ -12,7 +12,7 @@
     <ProjectReference Include="..\Dasher\Dasher.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="11.0.0" />
+    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
     <PackageReference Include="MsgPack.Cli" Version="0.9.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
